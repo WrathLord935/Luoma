@@ -184,15 +184,14 @@ export default function UploadItem() {
 
                 dbError = error;
 
-                // Add to Community Leaderboard
-                if (data && data.length > 0) {
-                    const newItemId = data[0].id;
-                    const { error: lbError } = await supabase
-                        .from('communityLeaderboard')
-                        .insert([{ item_id: newItemId, favs: 0 }]);
-
-                    if (lbError) console.error("Leaderboard Error:", lbError);
-                }
+                // NOTE: Leaderboard feature disabled - table doesn't exist in production
+                // if (data && data.length > 0) {
+                //     const newItemId = data[0].id;
+                //     const { error: lbError } = await supabase
+                //         .from('communityLeaderboard')
+                //         .insert([{ item_id: newItemId, favs: 0 }]);
+                //     if (lbError) console.error("Leaderboard Error:", lbError);
+                // }
             }
 
             if (dbError) {
