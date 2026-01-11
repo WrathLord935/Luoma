@@ -101,6 +101,23 @@ export default function Profile() {
     // Instead of filtering MY_ITEMS (fake), we use 'items' (real Supabase data)
     const filteredItems = items;
 
+    // Helper to map DB item to Card props
+    const mapToCard = (dbItem) => ({
+        id: dbItem.id,
+        image: dbItem.images ? dbItem.images[0] : 'https://via.placeholder.com/300',
+        title: dbItem.title,
+        price: dbItem.type === 'Donate' ? 'Free' : `$${dbItem.price}`,
+        size: dbItem.size,
+        type: dbItem.type,
+        status: dbItem.status || 'Available',
+        likes: dbItem.likes || 0,
+        owner: dbItem.seller || 'Anonymous',
+        distance: 'Local', // Calculated relative to user if needed
+        category: dbItem.category,
+        condition: dbItem.condition
+        // Add other fields as necessary for ItemCard
+    });
+
 
     return (
         <div className="manifesto-page">

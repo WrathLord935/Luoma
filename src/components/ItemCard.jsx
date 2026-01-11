@@ -7,7 +7,7 @@ export default function ItemCard({ item }) {
         <Card className="item-card">
             <div className="item-image-container">
                 <img src={item.image} alt={item.title} className="item-image" />
-                <span className={`item-badge item-badge--${item.type.toLowerCase()}`}>
+                <span className={`item-badge item-badge--${(item.type || 'standard').toLowerCase()}`}>
                     {item.type}
                 </span>
             </div>
