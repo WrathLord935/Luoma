@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Recycle, TrendingUp, Users, Zap, Leaf, Flame, RefreshCcw, Sparkles, Mountain, Monitor } from 'lucide-react';
 import Button from '../components/Button';
-import api from '../api';
+// import api from '../api'; // Removed - not used in production
 import './Home.css';
 
 export default function Home() {
@@ -78,32 +78,8 @@ export default function Home() {
         { id: 5, user: 'System', action: '124 items diverted today', icon: <RefreshCcw size={16} className="icon-cinnamon" />, boldClass: 'text-cinnamon' }
     ]);
 
-    // Fetch posts/activities from backend
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                // We'll use the posts endpoint as a proxy for "activity" for now
-                // In a real app, we might have a dedicated activity stream endpoint
-                const posts = await api.get('/posts');
-                if (posts && posts.length > 0) {
-                    const mapped = posts.slice(0, 5).map(p => ({
-                        id: p.id,
-                        user: p.userName || 'User',
-                        action: p.type === 'recycle_haul' ? 'recycled a haul' : `posted: ${p.content.substring(0, 20)}...`,
-                        icon: <Zap size={16} className="icon-cinnamon" />,
-                        boldClass: 'text-cinnamon'
-                    }));
-                    // Only override if we have enough data to make it look good, otherwise mix or keep default
-                    if (mapped.length >= 3) {
-                        setActivities(prev => [...mapped, ...prev.slice(0, 2)]);
-                    }
-                }
-            } catch (err) {
-                console.log("Using default activity stream");
-            }
-        };
-        fetchPosts();
-    }, []);
+    // NOTE: Removed api.get('/posts') call - that backend doesn't exist in production.
+    // Default activities above are used instead.
 
     const renderActivityItem = (item) => (
         <span key={item.id}>

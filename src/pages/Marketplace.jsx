@@ -3,7 +3,7 @@ import { Search as SearchIcon, Filter, ArrowRight, Sparkles, ChevronLeft, Chevro
 import ItemCard from '../components/ItemCard';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import api from '../api';
+// import api from '../api'; // Removed - not used
 import './Marketplace.css';
 
 import { supabase } from '../lib/supabase';
