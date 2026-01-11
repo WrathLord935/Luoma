@@ -1,0 +1,220 @@
+.sidebar {
+    width: 280px;
+    height: 100%;
+    background-color: var(--color-surface);
+    border-right: 3px solid var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    z-index: 100;
+    box-shadow: 4px 0 0 var(--color-primary);
+    overflow: visible;
+    /* Changed from hidden to allow toggle tab to stick out */
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    /* Ensure absolute children (toggle) are relative to this */
+}
+
+.sidebar--collapsed {
+    width: 90px;
+    padding: 32px 12px;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-slow {
+    animation: spin 8s linear infinite;
+}
+
+.brand-logo:hover .spin-hover {
+    animation: spin 4s linear infinite;
+}
+
+.brand-logo:hover .spin-hover-reverse {
+    animation: spin 4s linear infinite reverse;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.sidebar--collapsed .brand-logo {
+    font-size: 1.8rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    /* Center vertically or stick to top? User said 'tape measure last part', maybe stick out */
+    right: -24px;
+    /* Stick out */
+    transform: translateY(-50%);
+    background: var(--color-accent);
+    color: #000000;
+    /* Force Black for high contrast on green */
+    font-weight: 700;
+    border: 2px solid var(--color-text-primary);
+    border-left: none;
+    /* Connect to sidebar */
+    width: 24px;
+    height: 60px;
+    /* Tall like a tape strip */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 4px 0 0 rgba(0, 0, 0, 0.1);
+    z-index: 101;
+    transition: all 0.3s ease;
+}
+
+.sidebar-toggle svg {
+    color: #000000;
+    stroke: #000000;
+}
+
+.sidebar-toggle:hover {
+    width: 32px;
+    /* Expand on hover */
+    background: #D4FF5E;
+}
+
+/* Add "measure marks" using pseudo-element */
+.sidebar-toggle::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 10%;
+    bottom: 10%;
+    width: 4px;
+    background-image: repeating-linear-gradient(to bottom,
+            var(--color-text-primary) 0,
+            var(--color-text-primary) 1px,
+            transparent 1px,
+            transparent 8px);
+    opacity: 0.5;
+}
+
+.sidebar--collapsed .sidebar-toggle {
+    /* Keep the same style, but ensures it works when collapsed */
+    display: flex;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+    padding-top: 4px;
+    margin: -4px;
+    padding: 4px;
+    scrollbar-width: none;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-radius: var(--radius-full);
+    color: var(--color-text-primary);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-decoration: none;
+    background: transparent;
+    border: 2px solid transparent;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    white-space: nowrap;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sidebar--collapsed .nav-item {
+    padding: 12px;
+    justify-content: center;
+    border-radius: 12px;
+    width: 48px;
+    /* Fixed square-ish size */
+    height: 48px;
+    margin: 0 auto;
+    /* Center in column */
+}
+
+.sidebar--collapsed .nav-item--active {
+    background-color: var(--color-primary);
+    box-shadow: none;
+    /* Flatter look when collapsed? or keep it consistent? Let's keep consistent but smaller offset */
+    box-shadow: 2px 2px 0 var(--color-text-primary);
+    transform: translate(-1px, -1px);
+}
+
+.nav-label {
+    transition: opacity 0.2s ease, width 0.2s ease;
+}
+
+.sidebar--collapsed .nav-label {
+    opacity: 0;
+    width: 0;
+    display: none;
+}
+
+.nav-item:hover {
+    background-color: var(--color-background);
+    border-color: var(--color-text-primary);
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 var(--color-text-primary);
+}
+
+.nav-item--active {
+    background-color: var(--color-primary);
+    color: #FFF;
+    border: 2px solid var(--color-text-primary);
+    box-shadow: 3px 3px 0 var(--color-text-primary);
+    transform: translate(-2px, -2px);
+}
+
+.sidebar-footer {
+    padding-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    border-top: 2px dashed var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.nav-item--danger {
+    color: var(--color-danger);
+}
+
+.nav-item svg {
+    flex-shrink: 0;
+}

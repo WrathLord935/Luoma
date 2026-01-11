@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@400;500;700;800&display=swap');
+@import './styles/variables.css';
+@import './styles/animations.css';
+
+:root {
+  --font-heading: 'Syne', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  text-shadow: none;
+}
+
+/* Responsive Typography Cap */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+    /* Scale down root */
+  }
+
+  /* Safer wrapping: prevent horizontal scroll but dont break words mid-string unless necessary */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .brand-logo,
+  p,
+  span,
+  div {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    /* Standard wrap */
+    word-break: normal;
+    /* Keep words together if possible */
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem) !important;
+    /* Fluid scaling */
+    line-height: 1.1;
+  }
+
+  .brand-logo {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Tablet / Mid-Res handling */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Zapier Chatbot Override */
+zapier-interfaces-chatbot-embed {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 99999 !important;
+  transition: bottom 0.3s ease;
+}
+
+/* Hide Chatbot completely on mobile to clean up UI */
+@media (max-width: 768px) {
+  zapier-interfaces-chatbot-embed {
+    display: none !important;
+  }
+}
+
+/* Custom Scrollbar - Themed */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Thinner */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* Seamless */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 27, 27, 0.2);
+  /* Subtle Tea Stain */
+  border-radius: 10px;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+  /* Darker on hover */
+}
+
+/* Ensure SVG icons display properly */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-family: initial !important;
+}
+
+/* Fix for lucide-react icons */
+.lucide,
+svg.lucide {
+  display: inline-block !important;
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  font-family: initial !important;
+  vertical-align: middle;
+}
+
+/* Ensure input icons render as SVG, not text */
+.input-icon svg,
+.input-right-element svg {
+  stroke: currentColor !important;
+  fill: none !important;
+  font-family: initial !important;
+}

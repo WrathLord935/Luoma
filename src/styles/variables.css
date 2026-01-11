@@ -1,0 +1,63 @@
+:root {
+  /* Colors - LOOMA Gen Z Chai */
+  --color-background: #F4EBD9;
+  /* Milky Chai */
+  --color-surface: #FFF8E7;
+  /* Steamed Milk */
+  --color-text-primary: #2D1B1B;
+  /* Deep Black Tea */
+  --color-text-secondary: #7A5C5C;
+  /* Cocoa */
+
+  --color-primary: #D65A31;
+  /* Spicy Cinnamon */
+  --color-primary-hover: #B5421E;
+
+  --color-accent: #C2F83E;
+  /* Electric Cardamom (Gen Z Pop) */
+  --color-accent-text: #1A2100;
+
+  --color-danger: #FF2E00;
+  --color-success: #00A86B;
+  --color-border: #2D1B1B;
+  /* Bold Tea Border */
+
+  /* Typography */
+  --font-heading: 'Syne', sans-serif;
+  /* Funky, Wide, Art-School */
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Space Grotesk', sans-serif;
+  /* Techy but quirky */
+  --font-body: 'Space Grotesk', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+  --spacing-2xl: 8rem;
+
+  /* Radius - Organic/Blobby */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 99px;
+
+  /* Shadows - Hard Pop */
+  --shadow-sm: 2px 2px 0px rgba(45, 27, 27, 0.1);
+  --shadow-md: 4px 4px 0px var(--color-text-primary);
+  /* Hard ink shadow */
+  --shadow-lg: 8px 8px 0px var(--color-primary);
+  /* Pop shadow */
+
+  /* Transitions */
+  --transition-normal: 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  /* Snappy */
+}
+
+/* Dark Mode (optional, but good to have prepared) */
+@media (prefers-color-scheme: dark) {
+  /* Commented out for now to strictly follow "Soft neutral colors" initial request, 
+     but structure is here. Rethreads implies a light, airy sustainable feel usually. */
+}

@@ -1,0 +1,81 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+input.input.input-with-icon {
+    padding-left: 60px !important;
+    /* Space for icon - 20px icon + 14px left position + extra gap */
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(214, 90, 49, 0.1);
+}
+
+.input--error {
+    border-color: #ef4444;
+}
+
+.input-error {
+    font-size: 0.85rem;
+    color: #ef4444;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure SVG icons render properly */
+.input-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.input-right-element {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}

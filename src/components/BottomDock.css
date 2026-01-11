@@ -1,0 +1,116 @@
+.bottom-dock {
+    position: fixed;
+    bottom: 20px;
+    /* Floating slightly */
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    height: 72px;
+    background: var(--color-surface);
+    /* Matches site theme (Milky Chai) */
+    border: 3px solid var(--color-border);
+    /* Thicker DIY border */
+    border-radius: 20px;
+    /* Chunky rounded corners */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 8px 8px 0 rgba(214, 90, 49, 0.4);
+    /* Hard shadow kept */
+}
+
+.dock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    /* Syne font for character */
+    width: 60px;
+    height: 100%;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0.6;
+}
+
+.dock-item:hover,
+.dock-item.active {
+    color: var(--color-text-primary);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.dock-item.active .dock-label {
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.dock-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* PRIMARY UPLOAD BUTTON - "THE STICKER" */
+.dock-item--primary {
+    color: white;
+    opacity: 1;
+    position: relative;
+    top: -30px;
+    /* Pop out significantly */
+    overflow: visible;
+}
+
+.dock-item--primary svg {
+    background: var(--color-primary);
+    color: #000;
+    /* Contrast black icon on orange */
+    padding: 12px;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    /* Squircle/Tag shape */
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #FFF;
+    /* Hard white shadow for sticker effect */
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: rotate(-3deg);
+    /* Jaunty angle */
+}
+
+.dock-item--primary:active svg {
+    transform: scale(0.95) rotate(0deg);
+    box-shadow: 0 0 0 #FFF;
+}
+
+.dock-item--primary .dock-label {
+    position: absolute;
+    bottom: -18px;
+    color: var(--color-text-primary);
+    background: var(--color-background);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    font-size: 0.6rem;
+    font-weight: 800;
+    white-space: nowrap;
+    opacity: 0;
+    /* Hide label for the big button usually? Or keep it quirky */
+    transition: opacity 0.2s;
+}
+
+.dock-item--primary:hover .dock-label {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .bottom-dock {
+        display: flex;
+    }
+}

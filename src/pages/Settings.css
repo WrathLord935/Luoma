@@ -1,0 +1,313 @@
+/* CONFIG PAGE - SYSTEM AESTHETIC REFINED */
+.config-page {
+    min-height: 100vh;
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-background);
+    position: relative;
+    /* Dot pattern */
+    background-image: radial-gradient(var(--color-text-secondary) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.config-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    padding: 0 var(--spacing-lg);
+}
+
+/* HEADER */
+.config-header {
+    background: var(--color-text-primary);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 8px 8px 0 var(--color-primary);
+    color: var(--color-surface);
+    transform: rotate(-1deg);
+    margin-bottom: var(--spacing-lg);
+    border: 3px solid var(--color-text-primary);
+}
+
+.config-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--color-surface);
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* Ensure extremely long words break if needed */
+}
+
+.config-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-accent);
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-lg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-top: 1px dashed rgba(255, 255, 255, 0.3);
+    padding-top: var(--spacing-sm);
+}
+
+/* SECTIONS - BENTO CARDS */
+.config-section {
+    background: #FFF;
+    border: 3px solid var(--color-text-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+    transition: transform 0.2s ease;
+}
+
+.config-section:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0 var(--color-primary);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-header svg {
+    color: var(--color-primary);
+    /* Spicy Cinnamon */
+    stroke-width: 3px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    background: var(--color-background);
+    padding: 2px 8px;
+    border: 2px solid var(--color-text-primary);
+    transform: skew(-5deg);
+}
+
+/* INPUTS - CHUNKY BOXES */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.config-input {
+    background: var(--color-surface);
+    border: 2px solid var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.config-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 4px 4px 0 var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* TOGGLES - TACTILE RETRO */
+.toggles-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    background: var(--color-background);
+    padding: var(--spacing-lg);
+    border: 2px solid var(--color-text-primary);
+    border-radius: var(--radius-md);
+}
+
+.config-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+}
+
+.config-label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+}
+
+.config-switch {
+    width: 64px;
+    height: 36px;
+    background: var(--color-text-secondary);
+    border-radius: 8px;
+    /* Boxy */
+    border: 2px solid var(--color-text-primary);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 2px 2px 0 var(--color-text-primary);
+}
+
+.switch-handle {
+    width: 24px;
+    height: 24px;
+    background: #FFF;
+    border: 2px solid var(--color-text-primary);
+    border-radius: 4px;
+    /* Boxy */
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.config-switch.active {
+    background: var(--color-accent);
+    /* Electric Green */
+}
+
+.config-switch.active .switch-handle {
+    transform: translateX(28px);
+    background: #FFF;
+}
+
+/* DANGER ZONE */
+.danger-zone {
+    border-color: var(--color-text-primary);
+    background: repeating-linear-gradient(45deg,
+            #FFF,
+            #FFF 10px,
+            rgba(255, 59, 48, 0.1) 10px,
+            rgba(255, 59, 48, 0.1) 20px);
+}
+
+.danger-zone .section-header h2 {
+    background: var(--color-danger);
+    color: #FFF;
+    border-color: var(--color-text-primary);
+}
+
+.danger-zone .section-header svg {
+    color: var(--color-danger);
+}
+
+.btn-danger {
+    background: #FFF;
+    border: 3px solid var(--color-danger);
+    color: var(--color-danger);
+    padding: 16px 24px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-shadow: 4px 4px 0 rgba(255, 59, 48, 0.3);
+}
+
+.btn-danger:hover {
+    background: var(--color-danger);
+    color: #FFF;
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+    transform: translate(-2px, -2px);
+}
+
+/* FOOTER */
+.config-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 3px dashed var(--color-text-secondary);
+}
+
+.btn-save {
+    background: var(--color-primary);
+    color: #FFF;
+    border: 3px solid var(--color-text-primary);
+    padding: 16px 40px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+    text-transform: uppercase;
+}
+
+.btn-save:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--color-accent);
+}
+
+.btn-logout {
+    background: var(--color-surface);
+    border: 3px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    padding: 16px 24px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.btn-logout:hover {
+    background: #e5e5e5;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .config-title {
+        font-size: 2.5rem;
+    }
+
+    .config-footer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .btn-save,
+    .btn-logout {
+        justify-content: center;
+    }
+}

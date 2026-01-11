@@ -1,0 +1,84 @@
+/* DashboardLayout.css */
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    /* Changed from 100vw to avoid scrollbar shift */
+    overflow: hidden;
+    background-color: var(--bg-primary);
+}
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    /* Ensure it fills available space */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+    padding: var(--spacing-xl);
+
+    /* Nuclear Centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sidebar behavior */
+.desktop-sidebar {
+    display: block;
+    z-index: 20;
+}
+
+.mobile-dock {
+    display: none;
+    /* Hidden by default on desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+/* TABLET (Mid-Res) Adjustment */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: var(--spacing-lg);
+        /* Reduce from XL to LG */
+    }
+
+    .main-content {
+        padding: var(--spacing-lg);
+        /* Reduce from XL to LG */
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    /* Hide sidebar on mobile */
+    .desktop-sidebar {
+        display: none;
+    }
+
+    /* Show bottom dock on mobile */
+    .mobile-dock {
+        display: block;
+    }
+
+    /* Adjust main content to account for bottom dock height */
+    .main-content {
+        padding: var(--spacing-lg);
+        /* Increased from md to lg to fix "cramped" feel */
+        padding-bottom: 100px;
+        /* More clearance for taller dock */
+        width: 100%;
+    }
+}

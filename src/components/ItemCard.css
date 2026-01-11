@@ -1,0 +1,156 @@
+.item-card {
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-image-container {
+    aspect-ratio: 4/5;
+    width: 100%;
+    /* Ensure it fills the grid cell width */
+    background-color: var(--color-surface);
+    margin-bottom: 12px;
+    border-radius: var(--radius-lg);
+    border: 3px solid var(--color-text-primary);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Polaroid frame */
+    box-shadow: 4px 4px 0 var(--color-text-primary);
+}
+
+.item-image-container img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    display: block;
+    object-fit: cover;
+}
+
+.item-image-container:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--color-primary);
+}
+
+/* Badge effect - Pop Pill */
+.item-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: lowercase;
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-text-primary);
+    font-family: var(--font-heading);
+    box-shadow: 2px 2px 0 var(--color-text-primary);
+    border-radius: var(--radius-full);
+    z-index: 10;
+}
+
+.item-badge--swap {
+    background-color: var(--color-accent);
+    /* Acid Green */
+}
+
+.item-badge--buy {
+    background-color: var(--color-primary);
+    /* Cinnamon */
+    color: #FFF;
+}
+
+.item-badge--donate {
+    background-color: #FFF;
+}
+
+.item-details {
+    padding: 0 12px 12px 12px;
+    /* Consistent padding inside the card border */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Take up remaining height */
+    gap: 8px;
+}
+
+.item-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    color: var(--color-text-primary);
+}
+
+.item-meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-family: var(--font-sans);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+
+.item-size,
+.item-condition {
+    background-color: var(--color-background);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.item-location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+}
+
+.item-footer {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: var(--spacing-sm);
+    border-top: 2px solid var(--color-background);
+    /* meaningful separation */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-owner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.875rem;
+    font-weight: 700;
+    /* Bolder for visibility */
+    color: var(--color-text-primary);
+}
+
+.owner-avatar {
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-text-primary);
+    color: var(--color-surface);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 2px solid var(--color-surface);
+    box-shadow: 0 0 0 1px var(--color-text-primary);
+    /* ring effect */
+}

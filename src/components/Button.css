@@ -1,0 +1,104 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    /* Pill */
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+    border: 2px solid var(--color-text-primary);
+    padding: 16px 32px;
+    position: relative;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    box-shadow: 4px 4px 0 var(--color-text-primary);
+}
+
+.btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-text-primary);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+    box-shadow: none;
+    transform: none;
+}
+
+/* Variants */
+.btn--primary {
+    background-color: var(--color-primary);
+    /* Cinnamon */
+    color: #FFF;
+}
+
+.btn--primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    color: #FFF;
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+}
+
+.btn--secondary {
+    background-color: var(--color-accent);
+    /* Acid Green */
+    color: var(--color-accent-text);
+}
+
+.btn--secondary:hover:not(:disabled) {
+    background-color: #B2E630;
+    box-shadow: 6px 6px 0 var(--color-text-primary);
+}
+
+.btn--outline {
+    background-color: transparent;
+}
+
+.btn--outline:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    background-color: rgba(74, 111, 165, 0.05);
+    /* Denim tint */
+}
+
+.btn--ghost {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--color-text-secondary);
+    padding: 0;
+}
+
+.btn--ghost:hover:not(:disabled) {
+    transform: translateX(-4px);
+    /* Slide left on hover */
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--color-text-primary);
+}
+
+/* Sizes */
+.btn--sm {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+}
+
+.btn--md {
+    padding: 16px 32px;
+    font-size: 0.8rem;
+}
+
+.btn--lg {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1.125rem;
+}
